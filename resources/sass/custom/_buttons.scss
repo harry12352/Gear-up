@@ -1,0 +1,40 @@
+.btn {
+    &.btn-loading,
+    %btn-loading,
+    &.loading {
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        -o-text-fill-color: transparent;
+        text-fill-color: transparent;
+        position: relative;
+        pointer-events: none;
+        opacity: .65;
+
+        &:before {
+            content: "";
+            -webkit-animation: spinner 2s infinite linear;
+            animation: spinner 2s infinite linear;
+            border: 3px solid #fff;
+            border-bottom-color: transparent;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            display: block;
+            margin-left: -10px;
+            margin-top: -8px;
+        }
+
+        &[class*="outline"] {
+            border-color: #d3d3d3;
+            &:before {
+                border: 3px solid #b8b8b8;
+                border-bottom-color: transparent;
+            }
+        }
+
+    }
+
+}

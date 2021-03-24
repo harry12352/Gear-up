@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  app:
+    image: ${CI_REGISTRY_IMAGE}:latest
+    container_name: gearwrx-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - app_code:/var/www
+      - app_storage:/var/www/storage
+    networks:
+      - gnet
+
+  db:
+    image: mysql:8.0
+    container_name: gearwrx-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_NAME: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - gnet
+
+  nginx:
+    image: nginx:alpine
+    container_name: gearwrx-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - app_code:/var/www
+      - app_storage:/var/www/storage
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - gnet
+    depends_on:
+      - "app"
+
+
+volumes:
+  db_data:
+  app_code:
+  app_storage:
+
+networks:
+  gnet:
+    driver: bridge

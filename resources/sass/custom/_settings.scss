@@ -1,0 +1,43 @@
+body.settings main{
+    background-color: #fff;
+}
+.settings-tab-content{
+    .account-profile-image{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+}
+.settings-tab .nav-tabs{
+    .nav-item {
+        color: $secondary;
+        display: flex;
+        border: none;
+
+        svg {
+            width: 18px;
+            height: 100%;
+            margin-right: 6px;
+            fill: $secondary;
+        }
+
+        &:hover {
+            color: $primary;
+
+            svg {
+                fill: $primary;
+            }
+        }
+
+        &.active {
+            color: $primary;
+            font-weight: 500;
+            border-bottom: 2px solid $primary;
+
+            svg {
+                fill: $primary;
+                stroke: $primary;
+            }
+        }
+    }
+}

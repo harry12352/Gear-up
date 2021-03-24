@@ -1,0 +1,91 @@
+.file-upload-zone {
+    border: 2px dashed $primary;
+    border-radius: 2px;
+    background-color: rgba($primary, 6%);
+    padding: 2rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+
+    &:hover,
+    &.is-dragover {
+        background-color: rgba($primary, 10%);
+    }
+
+    &.is-invalid{
+        border-color: $danger;
+        background-color: rgba($danger, 6%);
+    }
+
+    svg {
+        height: 60px;
+        width: 60px;
+        fill: $primary;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-top: .5rem;
+    }
+}
+
+
+#previewImages {
+    .uploadedImage {
+        border: 2px solid #DFE1E6;
+        display: inline-block;
+        border-radius: 2px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        width: 100px;
+        height: 100px;
+        position: relative;
+
+        &.loading {
+            background-color: #000;
+
+            img {
+                opacity: .4;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    .remove-image {
+        position: absolute;
+        top: -13px;
+        right: -8px;
+        border: 1px solid #dcdcdc;
+        background-color: #fff;
+        opacity: 1;
+        border-radius: 50%;
+        font-size: 15px;
+        width: 24px;
+        text-shadow: none;
+        padding-bottom: 1px;
+        text-align: center;
+        line-height: 21px;
+        transition: background-color .12s ease-in-out, border-color .12s ease-in-out, color .12s ease-in-out;
+
+        &:hover {
+            background-color: $danger;
+            border-color: $danger;
+            color: #fff;
+        }
+    }
+}
+
+
+.btn-back {
+    svg {
+        height: 10px;
+        max-width: 24px;
+        vertical-align: 0;
+    }
+}

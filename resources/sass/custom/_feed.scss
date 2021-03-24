@@ -1,0 +1,47 @@
+// People You May Know
+.people-know {
+    .people-card {
+        transition: opacity .2s ease-in-out;
+    }
+}
+
+
+// Products List
+.home-feed .product_feed_card {
+    border: none;
+}
+.product_feed_card {
+    transition: opacity .2s ease-in-out;
+    .product_image {
+        height: 360px;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+//brands
+.brands-wrapper {
+    .card {
+        border: none;
+    }
+
+    .card-header {
+        border: none;
+    }
+}
+
+// Recently Viewed
+.recently-viewed .product_image {
+    height: 245px;
+}
+
+// sidebar
+.feed-sidebar {
+    .card {
+        border: none;
+    }
+
+    .card-header {
+        bordeR: none;
+    }
+}

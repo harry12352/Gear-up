@@ -1,0 +1,31 @@
+#product-form {
+    textarea {
+        height: 155px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+
+            a, button {
+                flex-basis: 48%;
+                width: 48%;
+                body[class$="products-create"] & {
+
+                    flex-basis: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+}
+
+body[class$="products-create"] {
+    #product-form {
+
+    }
+}

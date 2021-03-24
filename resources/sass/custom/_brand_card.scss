@@ -1,0 +1,21 @@
+.brand-card{
+    transition: opacity .25s ease-in-out;
+    .brand-card--meta{
+        width: calc(100% - 75px);
+        min-width: 92px;
+    }
+    .brand-image-wrapper{
+        width: 75px;
+    }
+    img{
+        height: 75px;
+        width: 75px;
+        object-fit: contain;
+    }
+    &--title{
+        font-size: 14px;
+    }
+    &--products{
+        font-size: 13px;
+    }
+}

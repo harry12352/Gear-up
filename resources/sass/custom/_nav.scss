@@ -1,0 +1,276 @@
+header .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+    .header-primary & {
+        background-color: $primary;
+        border-bottom: 1px solid darken($primary, 2%);
+    }
+
+    .navbar-brand img {
+
+        .header-primary & {
+            filter: invert(1);
+        }
+
+        max-width: 50px;
+    }
+
+    .search_form {
+        .input-group-prepend {
+            margin-right: -45px;
+            position: relative;
+            z-index: 4;
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: transparent;
+        }
+
+        svg {
+            fill: #c2c5cb;
+            vertical-align: baseline;
+        }
+
+        input {
+            border-radius: 2px !important;
+            padding-left: 45px;
+
+            .header-primary & {
+                background-color: darken($primary, 3%);
+                border-color: darken($primary, 5%);
+                color: #fff;
+
+                &:focus {
+                    background-color: rgba(#fff, .15);
+                    border-color: #fff;
+                }
+            }
+
+        }
+    }
+
+    ul {
+        align-items: center;
+    }
+
+    @media screen and (max-width: 992px) {
+        .navbar-collapse {
+            margin: 10px -2rem 0;
+            padding: 0.6rem 2rem 0.9rem;
+            background-color: #e8e8e8;
+            transition: all .15s ease;
+        }
+    }
+
+    .nav-item {
+        margin-right: 1rem;
+        @media screen and (max-width: 992px) {
+            width: 100%;
+            margin: 0;
+        }
+
+        > a:not(.btn) {
+            color: #000;
+            @media screen and (max-width: 992px) {
+                padding: 1rem 0;
+            }
+
+            .header-primary & {
+                color: #fff;
+
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+
+        .btn {
+            padding-left: 12px;
+            padding-right: 12px;
+
+            .header-primary & {
+                border: 1px solid #fff;
+                background-color: rgba(#fff, .15);
+
+                &:hover {
+                    background-color: #fff;
+                    color: $primary;
+
+                }
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .nav-link:not(.dropdown-toggle):not(.btn) {
+            transition: color .15s ease-in-out;
+
+            svg {
+                vertical-align: -5px;
+            }
+
+            &:hover {
+                color: $primary;
+
+                path {
+                    fill: $primary;
+                }
+
+                .header-primary & {
+                    color: #fff;
+
+                    path {
+                        fill: #fff;
+                    }
+                }
+            }
+
+            &.active {
+                font-weight: 600;
+                color: $primary;
+
+                path {
+                    fill: $primary;
+                }
+
+                .header-primary & {
+                    color: #fff;
+
+                    path {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .user-profile,
+    .user-notification {
+        > a {
+            padding: 2px 12px !important;
+            border-radius: 4px;
+            border: 2px solid $input-border-color;
+            transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+
+            .header-primary & {
+                border-color: rgba(#fff, 30%);
+            }
+        }
+
+        svg {
+            fill: #818A91;
+            transition: fill .2s ease-in-out, border-color .2s ease-in-out;
+
+            .header-primary & {
+                fill: #fff;
+            }
+        }
+
+        a:hover {
+            border-color: darken($input-border-color, 10%);
+            background-color: rgba(#000, 0.03);
+
+            .header-primary & {
+                border-color: rgba(#fff, 60%);
+            }
+        }
+
+        &.show > a {
+            border-color: $primary;
+            background-color: rgba($primary, 0.15);
+
+            .header-primary & {
+                border-color: rgba(#fff, 60%);
+                background-color: rgba(#fff, 0.03);
+            }
+        }
+    }
+
+    .user-profile {
+        .user-name {
+            margin: 0 8px;
+        }
+
+        img {
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid $input-border-color;
+
+            .header-primary & {
+                border-color: rgba(#fff, 20%);
+            }
+        }
+
+        svg {
+            vertical-align: baseline;
+        }
+
+        a:after {
+            display: none;
+        }
+
+        .dropdown-menu {
+            width: 100%;
+        }
+    }
+
+    .user-notification {
+
+        > a {
+            padding: 2px 5px !important;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &.show > a, > a:hover {
+            svg {
+                fill: darken(#818A91, 10%);
+
+                .header-primary & {
+                    fill: rgba(#fff, 80%);
+                }
+            }
+        }
+
+        a.dropdown-item:hover {
+            color: currentColor;
+            background-color: rgba($primary, 0.05);
+        }
+
+        &.has-notifications {
+            > a {
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    height: 9px;
+                    width: 9px;
+                    border-radius: 50%;
+                    background-color: $primary;
+                    z-index: 1;
+
+                    .header-primary & {
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .dropdown-menu {
+
+        a:hover {
+            color: #fff;
+            background-color: $primary;
+        }
+    }
+
+}

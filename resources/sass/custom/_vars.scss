@@ -1,0 +1,54 @@
+// Colors
+$primary:       #b3100e;
+$secondary:     #536273;
+$info:          #459FD5;
+$warning:       #F5A623;
+$danger:        #D0021B;
+
+
+$headings-font-family:  "Roboto", sans-serif;
+$font-family-base: "Roboto", sans-serif;
+
+//Text
+$font-weight-bold:  500 !default;
+
+// Button
+$btn-font-weight: 500;
+$btn-padding-y: 0.534rem;
+$btn-padding-x: 1.4624rem;
+$btn-border-radius: .15rem;
+
+// Form
+$input-height-border: 6px;
+$input-border-width: 2px;
+$input-border-radius: 2px;
+$input-border-color: #DFE1E6;
+$input-focus-box-shadow: none;
+$input-focus-border-color: #000;
+$label-margin-bottom: .25rem;
+$input-placeholder-color: #c2c5cb;
+
+// Navbar
+$navbar-padding-y: 0.831rem;
+$navbar-padding-x: 2rem;
+
+// Dropdown
+$dropdown-border-radius: 2px;
+$dropdown-link-hover-color: #fff;
+$dropdown-item-padding-y: 0.5rem;
+
+// Alert
+$alert-border-width: 0px;
+$alert-border-radius: 2px;
+$alert-bg-level: -11.3;
+$alert-color-level: 2;
+
+// Pagination
+$pagination-padding-y: 0.8rem;
+$pagination-padding-x: 1rem;
+
+// Modal
+$transition-fade:             visibility .15s linear, opacity .15s linear;
+$modal-transition:                  transform .2s ease-out !default;
+$modal-content-border-radius: 2px;
+$modal-content-border-color: #dcdcdc;

@@ -1,0 +1,120 @@
+.register, .login {
+    main{
+        background-color: #fff;
+        padding-top: 0;
+    }
+    [class*=col-] {
+        position: static;
+    }
+
+    .row {
+        position: relative;
+    }
+
+    .auth-cover {
+        object-fit: cover;
+        object-position: 50%;
+    }
+
+    .auth-wrap {
+        max-width: 430px;
+    }
+
+    .logo {
+        display: block;
+        top: (1rem * 5);
+        max-width: 80px;
+    }
+
+    @media screen and (max-height: 680px) {
+        .row {
+            align-items: flex-end !important;
+        }
+        .auth-wrap {
+            padding-bottom: 2rem;
+        }
+    }
+    @media screen and (max-height: 680px) {
+        .logo {
+            top: 2rem;
+        }
+    }
+    @media screen and (max-height: 550px) {
+        .auth-wrap {
+            padding-bottom: 1rem;
+        }
+        .logo {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            position: static !important;
+            transform: none !important;
+        }
+        .row{
+            align-items: initial !important;
+        }
+        .auth-cover{
+            height: 100% !important;
+        }
+    }
+
+    @media screen and (max-height: 550px) {
+        .auth-wrap {
+            padding-bottom: 1rem;
+        }
+        .logo {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            position: static !important;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+
+        .auth-wrap {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto !important;
+        }
+        .logo {
+            margin: 1rem auto 2rem;
+            position: static !important;
+            transform: none !important;
+        }
+        .auth-cover-col {
+            display: none;
+        }
+    }
+}
+
+
+// Register
+.register {
+    .logo {
+        top: 1rem;
+    }
+    @media screen and (max-height: 880px) {
+        .row {
+            align-items: flex-end !important;
+        }
+        .auth-wrap {
+            padding-bottom: 2rem;
+        }
+    }
+    @media screen and (max-height: 730px) {
+        .auth-wrap {
+            padding-bottom: 1rem;
+        }
+        .logo {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            position: static !important;
+            transform: none !important;
+        }
+        .row{
+            align-items: initial !important;
+        }
+        .auth-cover{
+            height: 100% !important;
+        }
+    }
+}

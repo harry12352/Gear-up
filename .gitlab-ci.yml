@@ -1,0 +1,45 @@
+image: docker:latest
+
+stages:
+  - build
+  - deploy
+
+services:
+  - docker:dind
+
+build_image:
+  stage: build
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - cp $APP_ENV .env
+  script:
+      - cp $APP_ENV .env
+      - docker pull $CI_REGISTRY_IMAGE:latest || true
+      - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest .
+      - docker push $CI_REGISTRY_IMAGE:latest
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+deploy_production:
+  stage: deploy
+  variables:
+    SERVER: ubuntu@ec2-54-234-166-217.compute-1.amazonaws.com
+    APP_DIR: ~/app/gear-up
+  before_script:
+    - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+    - eval $(ssh-agent -s)
+    - chmod 400 $SSH_PRIVATE_KEY
+    - ssh-add $SSH_PRIVATE_KEY
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - cp $APP_ENV .env
+    
+  script:
+      # Cleaning up old code.
+    - ssh $SERVER "sudo rm -rf ~/app && mkdir ~/app"
+    - scp -r $(pwd)/ $SERVER:~/app
+    - ssh $SERVER CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE 'bash -s' < docker-compose/deploy.sh
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'

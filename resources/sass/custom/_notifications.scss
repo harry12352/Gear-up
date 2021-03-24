@@ -1,0 +1,100 @@
+.notification {
+    > div {
+        width: 450px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #dcdcdc;
+    }
+
+    &--title {
+        p {
+            box-sizing: border-box;
+            word-break: normal;
+            display: block;
+            width: 100%;
+            white-space: initial;
+            margin: 0;
+            line-height: 1.25;
+        }
+    }
+
+    .notification--user {
+        font-weight: 500;
+    }
+
+    &.unread-notification {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.03);
+
+        .notification--title {
+            font-weight: 500;
+        }
+
+        .notification--icon:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 52px;
+            height: 9px;
+            width: 9px;
+            border-radius: 50%;
+            background-color: $primary;
+            z-index: 1;
+        }
+
+
+        .markSingleRead {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            width: 10px;
+            cursor: pointer;
+            height: 10px;
+            z-index: 1;
+            background-color: transparent;
+            border-radius: 50%;
+            border: 2px solid #318f68;
+            opacity: 0;
+
+            &:hover {
+                background-color: #318f68;
+            }
+        }
+        &:hover .markSingleRead {
+            opacity: 1;
+        }
+    }
+
+    &.dropdown-item--simple {
+        padding: 0.5rem 1.5rem 1rem;
+
+        p {
+            margin: 0;
+        }
+
+        &:hover, &:focus {
+            color: initial;
+            background-color: #fff;
+        }
+
+        .notification--header {
+            font-weight: 500;
+        }
+
+        a:hover {
+            background-color: inherit !important;
+            color: inherit !important;
+        }
+
+    }
+}
+
+.user-notification .dropdown-menu{
+    max-height: 280px;
+    overflow: auto;
+}
